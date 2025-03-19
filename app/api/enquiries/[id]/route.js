@@ -1,4 +1,4 @@
-import { connectDB } from '@/lib/db';
+import connectDB from '@/lib/db';
 import Enquiry from '@/models/enquiry';
 import Property from '@/models/property';
 import { getTokenFromHeader, verifyToken } from '@/lib/jwt';

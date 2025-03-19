@@ -1,7 +1,18 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import connectDB from '@/lib/db';
+
+// Define a simple auth configuration
+const authConfig = {
+  callbacks: {
+    session({ session, token }) {
+      if (token) {
+        session.user.id = token.id;
+      }
+      return session;
+    }
+  }
+};
 
 // Define Property model schema
 import mongoose from 'mongoose';
@@ -34,7 +45,7 @@ const Property = mongoose.models.Property || mongoose.model('Property', property
 
 export async function GET(request) {
   try {
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authConfig);
     
     if (!session) {
       return NextResponse.json(
