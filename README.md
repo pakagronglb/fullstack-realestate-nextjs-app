@@ -48,8 +48,8 @@ This project was built following the comprehensive tutorial by [masynctech](http
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/real-estate-app.git
-   cd real-estate-app
+   git clone https://github.com/yourusername/fullstack-realestate-nextjs-app.git
+   cd fullstack-realestate-nextjs-app
    ```
 
 2. Install dependencies:
